@@ -15,6 +15,32 @@ body {
 }
 
 /* ===============================
+   HEADER
+================================ */
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.uni-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.pool-button {
+  margin-left: auto;
+}
+
+/* ===============================
    HEADINGS
 ================================ */
 h2 {
@@ -34,7 +60,8 @@ h3 {
 ================================ */
 input[type="text"],
 select {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   padding: 10px 12px;
   margin: 8px 5px 15px 0;
   border-radius: 8px;
@@ -94,6 +121,14 @@ hr {
 }
 
 /* ===============================
+   TABLE WRAPPER (SCROLL FIX)
+================================ */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ===============================
    TABLE STYLES
 ================================ */
 table {
@@ -135,7 +170,7 @@ tbody tr:hover {
 }
 
 /* ===============================
-   STATUS BADGES (optional use)
+   STATUS BADGES
 ================================ */
 .status-active {
   color: #16a34a;
@@ -148,7 +183,7 @@ tbody tr:hover {
 }
 
 /* ===============================
-   ACTION BUTTONS INSIDE TABLE
+   TABLE BUTTONS
 ================================ */
 table button {
   padding: 6px 12px;
@@ -169,41 +204,56 @@ table button.delete:hover {
 ================================ */
 @media (max-width: 768px) {
   body {
-    padding: 15px;
+    padding: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
   }
 
   input[type="text"],
   select {
+    max-width: 100%;
+  }
+
+  button {
     width: 100%;
+    margin-top: 5px;
   }
 
   table {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   th,
   td {
-    padding: 10px;
+    padding: 8px;
+  }
+
+  .brand-text {
+    font-size: 18px;
+  }
+
+  .uni-logo {
+    height: 45px;
   }
 }
-.uni-logo {
-  height: 60px;   /* Adjust if needed */
-  width: auto;
-  object-fit: contain;
-}
 
-/* Brand text */
-.brand-text {
-  font-size: 25px;
-  font-weight: 600;
-  margin-left: auto;
-}
-.header-left {
-  display: flex;
-  align-items: center;
-  /* gap: 12px; */
-}
+/* EXTRA SMALL DEVICES */
+@media (max-width: 400px) {
+  body {
+    padding: 8px;
+  }
 
-.pool-button{
-  margin-left: auto;
+  h2 {
+    font-size: 16px;
+  }
+
+  table {
+    font-size: 11px;
+  }
 }
