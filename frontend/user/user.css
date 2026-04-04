@@ -9,26 +9,26 @@
 .header {
   background: #e50914;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 50px;
   display: flex;
-  justify-content: space-between; /* 🔥 fix */
   align-items: center;
-  flex-wrap: wrap; /* allow wrapping on mobile */
 }
 
+/* Left section */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 10px; /* ❌ removed 580px */
+  gap: 20px; /* 🔥 FIXED (was 580px) */
 }
 
-.navbar{
-    padding: 20px;
-    background: #f4f4f4;
+.navbar {
+  padding: 20px;
+  background: #f4f4f4;
 }
-/* University Logo */
+
+/* Logo */
 .uni-logo {
-  height: 60px;   /* Adjust if needed */
+  height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -40,18 +40,15 @@
   color: maroon;
 }
 
-
-body{
+body {
   min-height: 100px;
 }
 
-/* Main Container */
+/* Container */
 .container {
-  padding: 20px;
+  padding: 40px;
   background: #f4f4f4;
 }
-  
-
 
 h2 {
   margin-bottom: 20px;
@@ -60,14 +57,19 @@ h2 {
 /* Cards */
 .card-container {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 30px;
-  flex-wrap: wrap; /* 🔥 allows wrapping */
-  justify-content: center;
 }
 
 .card {
-  width: 180px;
+  background: white;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card:hover {
@@ -81,10 +83,13 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Pool Section */
+/* Pool */
 .pool-box {
-  width: 100%;
-  max-width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .pool-box input {
@@ -109,7 +114,7 @@ h2 {
   background: #c40812;
 }
 
-
+/* Live */
 .live-card {
   background: #f4f4f4;
   padding: 20px;
@@ -135,28 +140,19 @@ h2 {
 
 #history {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
 }
 
 /* Footer */
 .footer {
   background: #e50914;
   color: white;
-  /* margin-top: 50px; */
-  
-  left: 0;
-  bottom: 0;
-  /* width: 100%; */
-
 }
 
 .footer-container {
   display: flex;
   justify-content: space-around;
-  padding: 30px 15px;
+  padding: 40px 20px;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
 .footer-section h4 {
@@ -180,23 +176,28 @@ h2 {
   font-size: 14px;
 }
 
-/* FLEX CONTAINER */
+/* Equipment */
 .equip-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .equip-card {
-  width: 160px;
+  background: white;
+  width: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
 .equip-card:hover {
   transform: translateY(-5px);
 }
 
-/* IMAGE */
 .equip-img {
   width: 90px;
   height: 90px;
@@ -204,7 +205,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* STATUS COLORS */
 .available {
   color: green;
   font-weight: bold;
@@ -215,47 +215,66 @@ h2 {
   font-weight: bold;
 }
 
+/* =========================
+   🔥 MOBILE FIX ONLY
+   ========================= */
 @media (max-width: 768px) {
 
+  /* Header fix */
+  .header {
+    padding: 12px 20px;
+  }
+
+  .header-left {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .brand-text {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .uni-logo {
     height: 45px;
   }
 
-  .card {
-    width: 140px;
-    padding: 15px;
+  /* Cards wrap */
+  .card-container {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .card img {
-    width: 60px;
-    height: 60px;
+  .card {
+    width: 160px;
+  }
+
+  /* Pool box responsive */
+  .pool-box {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* Equipment cards */
+  .equip-flex {
+    justify-content: center;
   }
 
   .equip-card {
-    width: 140px;
-    padding: 15px;
+    width: 160px;
   }
 
-  .pool-box {
-    padding: 20px;
+  /* History fix */
+  #history {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Text sizing */
+  h2 {
+    font-size: 18px;
   }
 
   .score {
     font-size: 28px;
   }
-
-  h2 {
-    font-size: 20px;
-  }
 }
-
-/* @media (max-width: 768px) {
-  body {
-    padding: 15px;
-  }
-} */
-
