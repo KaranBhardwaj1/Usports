@@ -1,0 +1,209 @@
+/* ===============================
+   GLOBAL RESET & BASE STYLES
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f0f4ff, #e9f7f2);
+  padding: 30px;
+  color: #333;
+}
+
+/* ===============================
+   HEADINGS
+================================ */
+h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-left: 6px solid #4f46e5;
+  padding-left: 12px;
+}
+
+h3 {
+  margin: 20px 0 10px;
+  color: #34495e;
+}
+
+/* ===============================
+   INPUTS & SELECT
+================================ */
+input[type="text"],
+select {
+  width: 280px;
+  padding: 10px 12px;
+  margin: 8px 5px 15px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ===============================
+   SECTIONS / CARDS
+================================ */
+hr {
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #bbb, transparent);
+}
+
+#equipmentList,
+#list {
+  margin-top: 10px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   TABLE STYLES
+================================ */
+table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: center;
+}
+
+th {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9ff;
+}
+
+tbody tr:hover {
+  background-color: #eef2ff;
+}
+
+/* ===============================
+   STATUS BADGES (optional use)
+================================ */
+.status-active {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.status-ended {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* ===============================
+   ACTION BUTTONS INSIDE TABLE
+================================ */
+table button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+table button.delete {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+table button.delete:hover {
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.35);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  select {
+    width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+}
+.uni-logo {
+  height: 60px;   /* Adjust if needed */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Brand text */
+.brand-text {
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: auto;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  /* gap: 12px; */
+}
+
+.pool-button{
+  margin-left: auto;
+}

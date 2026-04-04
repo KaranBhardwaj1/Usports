@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+
+</head>
+<body>
+
+<div class="navbar">
+   <div class="header-left">
+    <img src="logo.png" alt="Chitkara University" class="uni-logo">
+    <span class="brand-text">uSports</span>
+    <button onclick="window.location.href='admin-pool.html'" class="pool-button">
+  Manage Pool Bookings
+</button>
+  </div>
+  <br>
+  <h2>Admin – Equipment Management</h2>
+  
+</div>
+
+<!-- Security check -->
+<script>
+  if (!localStorage.getItem("token") || localStorage.getItem("role") !== "admin") {
+    alert("Admin access only");
+    window.location.href = "login.html";
+  }
+</script>
+
+<input type="text" id="equipName" placeholder="Equipment name">
+<button onclick="addEquipment()">Add Equipment</button>
+
+<hr>
+
+<h3>Equipment List</h3>
+<div id="equipmentList"></div>
+
+<h2>Assign Equipment</h2>
+
+<input
+  type="text"
+  id="universityId"
+  placeholder="University ID"
+/>
+
+<select id="equipmentSelect"></select>
+
+<button onclick="assign()">Assign</button>
+
+
+
+<ul id="list"></ul>
+
+<h2>Active Assignments</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Equipment</th>
+      <th>University ID</th>
+      <th>Assigned At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody id="assignmentTable"></tbody>
+</table>
+
+<script src="admin.js"></script>
+</body>
+</html>

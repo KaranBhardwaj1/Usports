@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Organisation Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+
+  <h2>Live Control</h2>
+
+<input id="tournament" placeholder="Tournament Name">
+<input id="teamA" placeholder="Team A">
+<input id="teamB" placeholder="Team B">
+
+<button onclick="createMatch('cricket')">Start Cricket</button>
+<button onclick="createMatch('football')">Start Football</button>
+
+<hr>
+
+<h3>Cricket</h3>
+<button onclick="addRun(1)">+1</button>
+<button onclick="addRun(2)">+2</button>
+<button onclick="addRun(3)">+3</button>
+<button onclick="addRun(4)">+4</button>
+<button onclick="addRun(6)">+6</button>
+<button onclick="addWicket()">Wicket</button>
+<button onclick="addBall()">Ball</button>
+<button onclick="changeInnings()">Next Innings</button>
+
+<h3>Football</h3>
+<button onclick="goalA()">Goal A</button>
+<button onclick="goalB()">Goal B</button>
+
+<br><br>
+<button onclick="finishMatch()">Finish Match</button>
+
+<hr>
+
+<h2>Live Preview</h2>
+<div id="orgLivePreview"></div>
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+<script src="org.js"></script>
+</body>
+</html>

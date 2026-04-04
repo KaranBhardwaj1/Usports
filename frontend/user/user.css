@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  background: #e50914;
+  color: white;
+  padding: 12px 50px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+/* Left section */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 580px;
+}
+
+.navbar{
+    padding: 20px;
+    background: #f4f4f4;
+}
+/* University Logo */
+.uni-logo {
+  height: 60px;   /* Adjust if needed */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Brand text */
+.brand-text {
+  font-size: 25px;
+  font-weight: 600;
+  color: maroon;
+}
+
+
+body{
+  min-height: 100px;
+}
+
+/* Main Container */
+.container {
+  padding: 40px;
+  background: #f4f4f4;
+  
+  
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.card-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Pool Section */
+.pool-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.pool-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.pool-box button {
+  width: 100%;
+  padding: 12px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pool-box button:hover {
+  background: #c40812;
+}
+
+
+.live-card {
+  background: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.score {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.batting {
+  color: green;
+  font-weight: bold;
+}
+
+.target {
+  color: red;
+  font-size: 18px;
+}
+
+#history{
+  display: flex;
+}
+
+/* Footer */
+.footer {
+  background: #e50914;
+  color: white;
+  /* margin-top: 50px; */
+  
+  left: 0;
+  bottom: 0;
+  /* width: 100%; */
+
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.footer-section p:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  background: #c40812;
+  font-size: 14px;
+}
+
+/* FLEX CONTAINER */
+.equip-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* CARD */
+.equip-card {
+  background: white;
+  width: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.equip-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.equip-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* STATUS COLORS */
+.available {
+  color: green;
+  font-weight: bold;
+}
+
+.not-available {
+  color: red;
+  font-weight: bold;
+}
+
+/* @media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+} */
+

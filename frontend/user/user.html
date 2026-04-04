@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="navbar">
+  <div class="header-left">
+    <img src="imagess/logo.png" class="uni-logo">
+    <span class="brand-text">USports</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <h2>Services</h2>
+
+  <div class="card-container">
+
+    <div class="card" onclick="show('equip'); loadUserEquipments()">
+      <p>Equipments</p>
+    </div>
+
+    <div class="card" onclick="show('pool')">
+      <p>Pool Table</p>
+    </div>
+
+    <div class="card" onclick="show('live'); loadLiveOnStart(); loadHistory()">
+      <p>Live Scores</p>
+    </div>
+
+    <!-- ✅ FIXED -->
+    <div class="card" onclick="show('invite'); loadInvites()">
+      <p>Send Invite</p>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- EQUIPMENT -->
+  <div id="equip" style="display:none"></div>
+
+  <!-- REQUEST -->
+  <div id="req" style="display:none"></div>
+
+  <!-- POOL -->
+  <div id="pool" style="display:none" class="pool-box">
+    <h2>Pool Table Booking</h2>
+
+    <input type="text" id="poolName" placeholder="Enter your name">
+    <input type="text" id="poolUniversityId" placeholder="Enter university ID">
+
+    <div id="poolStatus"></div>
+
+    <button onclick="payAndBook()">Pay ₹50 & Book</button>
+  </div>
+
+  <!-- LIVE -->
+  <div id="live" style="display:none">
+    <h2>Live Matches</h2>
+    <div id="liveScoresContainer"></div>
+
+    <h2>Previous Matches</h2>
+    <div id="history"></div>
+  </div>
+
+  <!-- ✅ INVITE SECTION -->
+  <div id="invite" style="display:none">
+    <h2>Invite Players</h2>
+
+    <input id="sportInput" placeholder="Sport">
+    <input id="inviteMsg" placeholder="Message">
+
+    <button onclick="sendInvite()">Send Invite</button>
+
+    <div id="inviteBox"></div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h4>Useful Links</h4>
+      <p onclick="show('equip'); loadUserEquipments()">Equipments</p>
+      <p onclick="show('pool')">Pool</p>
+      <p onclick="show('live')">Live Score</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>📞 9896648728</p>
+      <p>📧 karan1270.be24@chitkarauniversity.edu.in</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 USports
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+<script src="user.js"></script>
+
+</body>
+</html>
