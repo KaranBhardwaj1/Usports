@@ -12,7 +12,7 @@ import { router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "react-native";
 
-const API = "https://your-app.onrender.com/api/auth";
+const API = "https://usports.onrender.com/api/auth";
 
 export default function Login() {
   const theme = useColorScheme(); // light or dark
