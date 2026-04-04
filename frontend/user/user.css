@@ -4,7 +4,9 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
+html, body {
+  height: 100%;
+}
 /* Header */
 .header {
   background: #e50914;
@@ -42,12 +44,16 @@
 
 body {
   min-height: 100px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 /* Container */
 .container {
   padding: 40px;
   background: #f4f4f4;
+  flex: 1;
 }
 
 h2 {
@@ -146,6 +152,7 @@ h2 {
 .footer {
   background: #e50914;
   color: white;
+  width: 100%;
 }
 
 .footer-container {
