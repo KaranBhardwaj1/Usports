@@ -247,13 +247,17 @@ h2 {
 
   /* Cards wrap */
   .card-container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+
 
   .card {
-    width: 160px;
-  }
+  flex: 1 1 200px; /* 🔥 responsive width */
+  max-width: 220px;
+}
 
   /* Pool box responsive */
   .pool-box {
