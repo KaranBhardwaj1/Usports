@@ -34,7 +34,7 @@ app.use("/api/org", require("./routes/orgAuth"));
 app.use("/api/score", require("./routes/score"));
 
 // MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/university_sports")
+mongoose.connect("process.env.MONGO_URI")
 .then(() => console.log("✅ MongoDB Connected"))
 .catch(err => console.log(err));
 
