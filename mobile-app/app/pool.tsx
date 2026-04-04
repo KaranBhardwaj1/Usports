@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 
-const API = "http://10.236.94.158:5000/api"; // 🔴 CHANGE THIS
+const API = "https://your-app.onrender.com/api"; // 🔴 CHANGE THIS
 
 interface PoolTable {
   _id: string;
