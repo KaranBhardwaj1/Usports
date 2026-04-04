@@ -1,4 +1,4 @@
-const API = "https://usports.onrender.com//api";
+const API = "https://usports.onrender.com/api";
 const token = localStorage.getItem("token");
 
 /* ===============================
@@ -156,7 +156,7 @@ function returnEquipment(id) {
 }
 
 function loadPoolBookings() {
-  fetch("https://usports.onrender.com//api/pool/admin/bookings", {
+  fetch("https://usports.onrender.com/api/pool/admin/bookings", {
     headers: {
       Authorization: localStorage.getItem("token")
     }
