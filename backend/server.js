@@ -34,7 +34,7 @@ app.use("/api/org", require("./routes/orgAuth"));
 app.use("/api/score", require("./routes/score"));
 
 // MongoDB
-mongoose.connect("process.env.MONGO_URI")
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("✅ MongoDB Connected"))
 .catch(err => console.log(err));
 
@@ -116,6 +116,8 @@ app.get("/", (req, res) => {
 });
 
 // 🔥 IMPORTANT: Use server.listen NOT app.listen
-server.listen(5000, "0.0.0.0", () => {
-  console.log("🚀 Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
