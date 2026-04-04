@@ -15,32 +15,6 @@ body {
 }
 
 /* ===============================
-   HEADER
-================================ */
-.header-left {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.uni-logo {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
-}
-
-.brand-text {
-  font-size: 25px;
-  font-weight: 600;
-  margin-left: auto;
-}
-
-.pool-button {
-  margin-left: auto;
-}
-
-/* ===============================
    HEADINGS
 ================================ */
 h2 {
@@ -60,8 +34,7 @@ h3 {
 ================================ */
 input[type="text"],
 select {
-  width: 100%;
-  max-width: 280px;
+  width: 280px;
   padding: 10px 12px;
   margin: 8px 5px 15px 0;
   border-radius: 8px;
@@ -121,8 +94,9 @@ hr {
 }
 
 /* ===============================
-   TABLE WRAPPER (SCROLL FIX)
+   TABLE WRAPPER (ADD IN HTML)
 ================================ */
+/* wrap table inside <div class="table-wrapper"> */
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -200,60 +174,69 @@ table button.delete:hover {
 }
 
 /* ===============================
-   RESPONSIVE DESIGN
+   HEADER / LOGO
+================================ */
+.uni-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pool-button {
+  margin-left: auto;
+}
+
+/* ===============================
+   🔥 MOBILE FIX ONLY
 ================================ */
 @media (max-width: 768px) {
+
   body {
-    padding: 12px;
+    padding: 15px;
   }
 
-  h2 {
-    font-size: 18px;
-  }
-
-  h3 {
-    font-size: 16px;
-  }
-
+  /* inputs full width */
   input[type="text"],
   select {
+    width: 100%;
     max-width: 100%;
   }
 
+  /* buttons full width */
   button {
     width: 100%;
     margin-top: 5px;
   }
 
+  /* table compact */
   table {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   th,
   td {
-    padding: 8px;
+    padding: 10px;
+  }
+
+  /* logo resize */
+  .uni-logo {
+    height: 45px;
   }
 
   .brand-text {
     font-size: 18px;
-  }
-
-  .uni-logo {
-    height: 45px;
-  }
-}
-
-/* EXTRA SMALL DEVICES */
-@media (max-width: 400px) {
-  body {
-    padding: 8px;
-  }
-
-  h2 {
-    font-size: 16px;
-  }
-
-  table {
-    font-size: 11px;
   }
 }
