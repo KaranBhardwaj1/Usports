@@ -10,18 +10,26 @@ const { Server } = require("socket.io");
 
 const server = http.createServer(app);
 
-const io = new Server(server, {
-  cors: {
-    origin: "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
-    methods: ["GET", "POST"]
-  }
-});
+// const io = new Server(server, {
+//   cors: {
+//     origin: "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
+//     methods: ["GET", "POST"]
+//   }
+// });
 
 // Middlewares
+
+const allowedOrigins = [
+  'https://usports-three.vercel.app/', // Your current Vercel URL
+  'http://localhost:3000'              // For local testing
+];
+
 app.use(cors({
-  origin: "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
+  origin: allowedOrigins,
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.static("frontend"));
 
