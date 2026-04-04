@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const API = "https://your-app.onrender.com/api/equipment"; // 🔥 put your IP
+const API = "https://usports.onrender.com//api/equipment"; // 🔥 put your IP
 
 export default function Equipment() {
   const theme = useColorScheme();
