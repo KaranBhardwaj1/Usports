@@ -1,4 +1,4 @@
-const API = "https://usports.onrender.com//api";
+const API = "https://usports.onrender.com/api";
 const token = localStorage.getItem("token");
 
 
@@ -61,7 +61,7 @@ function loadRequests() {
 
 
 function loadPoolStatus() {
-  fetch("https://usports.onrender.com//api/pool/status")
+  fetch("https://usports.onrender.com/api/pool/status")
     .then(res => res.json())
     .then(data => {
       const statusDiv = document.getElementById("poolStatus");
@@ -104,7 +104,7 @@ function payAndBook() {
     return;
   }
 
-  fetch("https://usports.onrender.com//api/pool/book", {
+  fetch("https://usports.onrender.com/api/pool/book", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -123,7 +123,7 @@ function payAndBook() {
 }
 
 function loadUserEquipments() {
-  fetch("https://usports.onrender.com//api/equipment", {
+  fetch("https://usports.onrender.com/api/equipment", {
     headers: {
       Authorization: localStorage.getItem("token")
     }
@@ -162,7 +162,7 @@ function loadUserEquipments() {
 }
 
 const socket = io("https://usports.onrender.com/");
-const SCORE_API = "https://usports.onrender.com//api/score";
+const SCORE_API = "https://usports.onrender.com/api/score";
 
 // LIVE
 socket.on("scoreUpdated", (data) => {
@@ -349,7 +349,7 @@ async function sendInvite() {
   const data = { name, sport, message };
 
   // SAVE TO DB
-  const res = await fetch("https://usports.onrender.com//api/invite", {
+  const res = await fetch("https://usports.onrender.com/api/invite", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -365,7 +365,7 @@ async function sendInvite() {
 
 async function loadInvites() {
 
-  const res = await fetch("https://usports.onrender.com//api/invite");
+  const res = await fetch("https://usports.onrender.com/api/invite");
   const data = await res.json();
 
   const div = document.getElementById("inviteBox");
