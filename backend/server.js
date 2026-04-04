@@ -15,7 +15,10 @@ const io = new Server(server, {
 });
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://usports-three.vercel.app/",
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.static("frontend"));
 
