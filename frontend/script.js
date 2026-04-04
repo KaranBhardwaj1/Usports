@@ -16,7 +16,7 @@ function register() {
   .then(res => res.text())
   .then(data => {
     alert(data);
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   });
 }
 
