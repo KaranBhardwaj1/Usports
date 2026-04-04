@@ -11,12 +11,15 @@ const { Server } = require("socket.io");
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: { origin: "*" }
+  cors: {
+    origin: "https://usports-three.vercel.app",
+    methods: ["GET", "POST"]
+  }
 });
 
 // Middlewares
 app.use(cors({
-  origin: "https://usports-three.vercel.app/",
+  origin: "https://usports-three.vercel.app",
   credentials: true
 }));
 app.use(express.json());
