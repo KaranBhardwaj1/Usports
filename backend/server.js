@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://usports-three.vercel.app/",
+    origin: "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
     
   }
 });
@@ -20,7 +20,7 @@ const io = new Server(server, {
 // Middlewares
 
 const allowedOrigins = [
-  'https://usports-three.vercel.app/', // Your current Vercel URL
+  'https://usports-git-main-karanbhardwaj1s-projects.vercel.app', // Your current Vercel URL
   'http://localhost:3000'              // For local testing
 ];
 
