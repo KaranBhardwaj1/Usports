@@ -1,4 +1,4 @@
-const API = "https://your-app.onrender.com/api";
+const API = "https://usports.onrender.com//api";
 
 // REGISTER
 function register() {
@@ -23,7 +23,7 @@ function register() {
 // LOGIN
 
 function login() {
-  fetch("https://your-app.onrender.com/api/auth/login", {
+  fetch("https://usports.onrender.com//api/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
