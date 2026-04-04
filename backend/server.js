@@ -10,12 +10,12 @@ const { Server } = require("socket.io");
 
 const server = http.createServer(app);
 
-// const io = new Server(server, {
-//   cors: {
-//     origin: "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
-//     methods: ["GET", "POST"]
-//   }
-// });
+const io = new Server(server, {
+  cors: {
+    origin: "https://usports-three.vercel.app/",
+    
+  }
+});
 
 // Middlewares
 
