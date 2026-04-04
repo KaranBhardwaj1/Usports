@@ -11,7 +11,7 @@ import {
 import { useLocalSearchParams, useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const API = "http://192.168.31.182:5000/api"; // change to your IP
+const API = "https://your-app.onrender.com/api"; // change to your IP
 
 export default function PaymentScreen() {
   const { name, universityId } = useLocalSearchParams();
