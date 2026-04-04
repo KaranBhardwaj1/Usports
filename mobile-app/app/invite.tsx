@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { io } from "socket.io-client";
 import { useFocusEffect } from "@react-navigation/native";
 
-const socket = io("https://your-app.onrender.com"); // 🔥 YOUR IP
+const socket = io("https://usports.onrender.com"); // 🔥 YOUR IP
 
 export default function InviteScreen() {
   const theme = useColorScheme(); // light or dark
