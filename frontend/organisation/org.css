@@ -6,32 +6,32 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Body with background */
+/* Background Image */
 body {
-  min-height: 100vh; /* 🔥 better than height */
+  min-height: 100vh; /* 🔥 FIX (was height) */
   background: url("https://images.shiksha.com/mediadata/images/1745389231phpOAgKO8.jpeg") no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Overlay */
+/* Dark overlay */
 .overlay {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* 🔥 FIX */
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px; /* 🔥 prevents edge sticking on mobile */
+  padding: 15px; /* 🔥 prevents edge touching */
 }
 
 /* Register Card */
 .register-card {
   background: white;
-  padding: 35px 25px;
+  padding: 40px;
   width: 100%;
-  max-width: 350px; /* 🔥 responsive */
+  max-width: 350px; /* 🔥 responsive fix */
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -39,19 +39,18 @@ body {
 
 /* Heading */
 .register-card h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #e50914;
-  font-size: 24px;
 }
 
 /* Inputs */
 .register-card input {
   width: 100%;
   padding: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 16px; /* 🔥 prevents zoom */
 }
 
 .register-card input:focus {
@@ -79,12 +78,12 @@ body {
 
 /* Logo */
 .logo-container {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .logo-container img {
-  width: 150px;
-  max-width: 100%;
+  width: 170px;
+  max-width: 100%; /* 🔥 FIX */
   height: auto;
 }
 
@@ -92,7 +91,6 @@ body {
 a {
   color: blue;
   text-decoration: none;
-  font-size: 14px;
 }
 
 a:hover {
@@ -100,39 +98,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 🔥 MOBILE RESPONSIVE */
-@media (max-width: 480px) {
+/* 🔥 MOBILE ONLY */
+@media (max-width: 400px) {
   .register-card {
-    padding: 25px 15px;
-    border-radius: 10px;
-  }
-
-  .register-card h2 {
-    font-size: 20px;
-  }
-
-  .register-card input {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .register-card button {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .logo-container img {
-    width: 120px;
-  }
-}
-
-/* EXTRA SMALL DEVICES */
-@media (max-width: 320px) {
-  .register-card {
-    padding: 20px 10px;
-  }
-
-  .register-card h2 {
-    font-size: 18px;
+    padding: 30px 20px;
   }
 }
