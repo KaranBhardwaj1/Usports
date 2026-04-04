@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { io } from "socket.io-client";
 
-const socket = io("https://your-app.onrender.com"); // 🔥 your IP
-const API = "https://your-app.onrender.com/api/score";
+const socket = io("https://usports.onrender.com/"); // 🔥 your IP
+const API = "https://usports.onrender.com//api/score";
 
 export default function LiveScreen() {
   const [match, setMatch] = useState<any>(null);
