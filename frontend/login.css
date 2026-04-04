@@ -6,42 +6,43 @@
   font-family: Arial, sans-serif;
 }
 
-/* Body */
+/* Body background */
 body {
-  min-height: 100vh;
+  min-height: 100vh; /* 🔥 FIX (was height) */
   display: flex;
   justify-content: center;
   align-items: center;
   background: #ffe5e5;
-  padding: 15px; /* important for small screens */
+  padding: 15px; /* 🔥 prevents edge sticking on phone */
 }
 
 /* Login container */
 .login-container {
   background: #ff4d4d;
-  padding: 30px 20px;
+  padding: 40px 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   width: 100%;
-  max-width: 350px; /* responsive */
+  max-width: 350px; /* 🔥 responsive fix */
   text-align: center;
   color: white;
 }
 
 /* Heading */
 .login-container h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 /* Inputs */
 .login-container input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 16px; /* 🔥 prevents zoom on iPhone */
 }
 
 /* Button */
@@ -50,38 +51,45 @@ body {
   padding: 12px;
   background: #cc0000;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-container button:hover {
+  background: #990000;
 }
 
 /* Message */
 #message {
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-/* 🔥 MOBILE OPTIMIZATION */
+#message.success {
+  color: #d4ffd4;
+}
+
+#message.error {
+  color: #ffcccc;
+}
+
+/* 🔥 MOBILE ONLY (no design change) */
 @media (max-width: 480px) {
+
   .login-container {
-    padding: 25px 15px;
-    border-radius: 10px;
+    padding: 30px 20px;
   }
 
   .login-container h2 {
-    font-size: 20px;
-  }
-
-  .login-container input {
-    font-size: 14px;
-    padding: 10px;
+    font-size: 22px;
   }
 
   .login-container button {
-    font-size: 15px;
-    padding: 10px;
+    font-size: 16px;
   }
 }
