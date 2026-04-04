@@ -35,8 +35,8 @@ app.use("/api/score", require("./routes/score"));
 
 // MongoDB
 mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("✅ MongoDB Connected"))
-.catch(err => console.log(err));
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.log(err));
 
 // Socket connection
 const Score = require("./models/Score"); // make sure path correct
