@@ -1,11 +1,11 @@
-const socket = io("http://localhost:5000");
-const API = "http://localhost:5000/api/score";
+const socket = io("https://your-app.onrender.com");
+const API = "https://your-app.onrender.com/api/score";
 
 let match = null;
 
 function loginn() {
 
-  fetch("http://localhost:5000/api/org/login", {
+  fetch("https://your-app.onrender.com/api/org/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
 
