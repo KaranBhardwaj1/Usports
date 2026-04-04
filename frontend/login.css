@@ -6,41 +6,42 @@
   font-family: Arial, sans-serif;
 }
 
-/* Body background */
+/* Body */
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffe5e5; /* light red/pink */
+  background: #ffe5e5;
+  padding: 15px; /* important for small screens */
 }
 
 /* Login container */
 .login-container {
-  background: #ff4d4d; /* red theme */
-  padding: 40px 30px;
+  background: #ff4d4d;
+  padding: 30px 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  width: 350px;
+  width: 100%;
+  max-width: 350px; /* responsive */
   text-align: center;
   color: white;
 }
 
 /* Heading */
 .login-container h2 {
-  margin-bottom: 25px;
-  font-size: 28px;
-  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 /* Inputs */
 .login-container input {
   width: 100%;
-  padding: 12px 15px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin-bottom: 15px;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /* Button */
@@ -49,30 +50,38 @@ body {
   padding: 12px;
   background: #cc0000;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
-}
-
-.login-container button:hover {
-  background: #990000;
 }
 
 /* Message */
 #message {
-  margin-top: 15px;
+  margin-top: 10px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-#message.success {
-  color: #d4ffd4; /* light green for success */
-}
+/* 🔥 MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 25px 15px;
+    border-radius: 10px;
+  }
 
-#message.error {
-  color: #ffcccc; /* light red for errors */
-}
+  .login-container h2 {
+    font-size: 20px;
+  }
 
+  .login-container input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .login-container button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
