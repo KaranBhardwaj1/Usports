@@ -11,7 +11,7 @@ import {
 import { router } from "expo-router";
 import { Image } from "react-native";
 
-const API = "https://your-app.onrender.com/api/auth";
+const API = "https://usports.onrender.com/api/auth";
 
 export default function Register() {
   const theme = useColorScheme();
