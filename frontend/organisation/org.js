@@ -1,4 +1,4 @@
-const socket = io("https://usports.onrender.com/");
+const socket = io("https://usports.onrender.com");
 const API = "https://usports.onrender.com/api/score";
 
 let match = null;
