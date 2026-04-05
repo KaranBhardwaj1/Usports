@@ -4,31 +4,34 @@ const API = "https://usports.onrender.com/api/score";
 let match = null;
 
 /* ================= LOGIN ================= */
-function loginn() {
-  fetch("https://usports.onrender.com/api/org/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-     console.log("LOGIN RESPONSE:", data);
+async function loginn() {
+  try {
+    const res = await fetch("https://usports.onrender.com/api/org/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value.trim()
+      })
+    });
 
-    if (data.token) {
-      localStorage.setItem("orgToken", data.token);
-      window.location.href = "dashboard.html";
-    } else {
-      alert(data.message || "Login failed ❌");
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || "Login failed");
+      return;
     }
 
-  })
-  .catch(err => {
+    // ✅ Save token
+    localStorage.setItem("orgToken", data.token);
+
+    // ✅ Redirect
+    window.location.href = "dashboard.html";
+
+  } catch (err) {
     console.error(err);
-    alert("Server error ❌");
-  });
+    alert("Server error");
+  }
 }
 
 /* ================= CREATE MATCH ================= */
