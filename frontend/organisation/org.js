@@ -1,48 +1,42 @@
-const socket = io("https://usports.onrender.com/");
-const API = "https://usports.onrender.com/api/score";
+const socket = io("https://usports.onrender.com");
+const API = "http://https://usports.onrender.com/api/score";
 
 let match = null;
 
-/* ================= LOGIN ================= */
-async function loginn() {
-  try {
-    const res = await fetch("https://usports.onrender.com/api/org/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: document.getElementById("email").value.trim(),
-        password: document.getElementById("password").value.trim()
-      })
-    });
+function loginn() {
 
-    const data = await res.json();
+  fetch("http://https://usports.onrender.com/api/org/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
 
-    if (!res.ok) {
-      alert(data.message || "Login failed");
-      return;
-    }
+    body: JSON.stringify({
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value
+    })
 
-    // ✅ Save token
+  })
+
+  .then(res => res.json())
+
+  .then(data => {
+
     localStorage.setItem("orgToken", data.token);
-
-    // ✅ Redirect
     window.location.href = "dashboard.html";
 
-  } catch (err) {
-    console.error(err);
-    alert("Server error");
-  }
+  });
+
 }
 
-/* ================= CREATE MATCH ================= */
-async function createMatch(sport) {
 
+// CREATE MATCH
+async function createMatch(sport) {
   const data = {
     sport,
     tournament: document.getElementById("tournament").value,
     teamA: document.getElementById("teamA").value,
     teamB: document.getElementById("teamB").value,
 
+    // 🔥 DEFAULTS
     status: "Live",
     innings: 1,
 
@@ -60,42 +54,35 @@ async function createMatch(sport) {
 
   const res = await fetch(API, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + localStorage.getItem("orgToken")
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   });
 
   match = await res.json();
 
-  socket.emit("scoreCreated");
+  socket.emit("scoreCreated"); // 🔥 FIXED
 
-  renderOrgPreview(match);
+  renderOrgPreview(match); // 🔥 SHOW PREVIEW
 }
 
-/* ================= UPDATE MATCH ================= */
+// UPDATE MATCH
 async function updateMatch() {
-
-  if (!match) return;
-
   const res = await fetch(`${API}/${match._id}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + localStorage.getItem("orgToken")
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(match)
   });
 
   match = await res.json();
 
-  socket.emit("scoreUpdated");
+  socket.emit("scoreUpdated"); // 🔥 FIXED
 
-  renderOrgPreview(match);
+  renderOrgPreview(match); // 🔥 LIVE PREVIEW
 }
 
-/* ================= CRICKET ================= */
+
+
+// CRICKET
 function addRun(x) {
   if (!match) return;
 
@@ -153,36 +140,29 @@ function addBall() {
 }
 
 function changeInnings() {
-  if (!match) return;
   match.innings = 2;
   updateMatch();
 }
 
-/* ================= FOOTBALL ================= */
+// FOOTBALL
 function goalA() {
-  if (!match) return;
-  match.scoreA = (match.scoreA || 0) + 1;
+  match.scoreA++;
   updateMatch();
 }
 
 function goalB() {
-  if (!match) return;
-  match.scoreB = (match.scoreB || 0) + 1;
+  match.scoreB++;
   updateMatch();
 }
 
-/* ================= FINISH ================= */
+// FINISH MATCH
 function finishMatch() {
-  if (!match) return;
   match.status = "Finished";
   updateMatch();
 }
 
-/* ================= PREVIEW ================= */
 function renderOrgPreview(match) {
   const div = document.getElementById("orgLivePreview");
-
-  if (!div) return;
 
   if (!match) {
     div.innerHTML = "<p>No Match</p>";
@@ -219,7 +199,6 @@ function renderOrgPreview(match) {
   div.innerHTML = content;
 }
 
-/* ================= SOCKET ================= */
 socket.on("scoreUpdated", (data) => {
   match = data;
   renderOrgPreview(data);
