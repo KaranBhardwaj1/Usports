@@ -161,7 +161,7 @@ function loadUserEquipments() {
     });
 }
 
-const socket = io("https://usports.onrender.com/");
+const socket = io("https://usports.onrender.com");
 const SCORE_API = "https://usports.onrender.com/api/score";
 
 // LIVE
