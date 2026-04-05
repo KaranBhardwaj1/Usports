@@ -4,15 +4,14 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-html, body {
-  height: 100%;
-}
+
 /* Header */
 .header {
   background: #e50914;
   color: white;
   padding: 12px 50px;
   display: flex;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -20,17 +19,16 @@ html, body {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 20px; /* 🔥 FIXED (was 580px) */
+  /* gap: 580px; */
 }
 
-.navbar {
-  padding: 20px;
-  background: #f4f4f4;
+.navbar{
+    padding: 20px;
+    background: #f4f4f4;
 }
-
-/* Logo */
+/* University Logo */
 .uni-logo {
-  height: 60px;
+  height: 60px;   /* Adjust if needed */
   width: auto;
   object-fit: contain;
 }
@@ -43,18 +41,17 @@ html, body {
   margin-left: 500px;
 }
 
-body {
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
 
+body{
+  min-height: 100px;
 }
 
-/* Container */
+/* Main Container */
 .container {
   padding: 40px;
   background: #f4f4f4;
-  flex: 1;
+  
+  
 }
 
 h2 {
@@ -90,7 +87,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Pool */
+/* Pool Section */
 .pool-box {
   background: white;
   padding: 30px;
@@ -121,13 +118,15 @@ h2 {
   background: #c40812;
 }
 
-/* Live */
+
 .live-card {
   background: #f4f4f4;
   padding: 20px;
-  margin-bottom: 20px;
   border-radius: 10px;
   text-align: center;
+
+  width: 250px;          
+  flex: 0 0 auto;
 }
 
 .score {
@@ -147,13 +146,21 @@ h2 {
 
 #history {
   display: flex;
+  flex-wrap: wrap;        
+  gap: 15px;              
+  justify-content: center;
 }
 
 /* Footer */
 .footer {
   background: #e50914;
   color: white;
-  width: 100%;
+  /* margin-top: 50px; */
+  
+  left: 0;
+  bottom: 0;
+  /* width: 100%; */
+
 }
 
 .footer-container {
@@ -184,7 +191,7 @@ h2 {
   font-size: 14px;
 }
 
-/* Equipment */
+/* FLEX CONTAINER */
 .equip-flex {
   display: flex;
   flex-wrap: wrap;
@@ -192,6 +199,7 @@ h2 {
   margin-top: 20px;
 }
 
+/* CARD */
 .equip-card {
   background: white;
   width: 200px;
@@ -206,6 +214,7 @@ h2 {
   transform: translateY(-5px);
 }
 
+/* IMAGE */
 .equip-img {
   width: 90px;
   height: 90px;
@@ -213,6 +222,7 @@ h2 {
   margin-bottom: 10px;
 }
 
+/* STATUS COLORS */
 .available {
   color: green;
   font-weight: bold;
@@ -223,70 +233,38 @@ h2 {
   font-weight: bold;
 }
 
-/* =========================
-   🔥 MOBILE FIX ONLY
-   ========================= */
+/*  2 CARDS PER ROW ON MOBILE */
 @media (max-width: 768px) {
 
-  /* Header fix */
-  .header {
-    padding: 12px 20px;
-  }
-
-  .header-left {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .brand-text {
-    font-size: 20px;
-  }
-
-  .uni-logo {
-    height: 45px;
-  }
-
-  /* Cards wrap */
   .card-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap; 
-  justify-content: center; 
-}
-
-
-  .card {
-  flex: 1 1 200px; /* 🔥 responsive width */
-  max-width: 220px;
-}
-
-  /* Pool box responsive */
-  .pool-box {
-    width: 100%;
-    max-width: 350px;
-  }
-
-  /* Equipment cards */
-  .equip-flex {
+    display: flex;
+    flex-wrap: wrap;        
+    gap: 15px;
     justify-content: center;
   }
 
-  .equip-card {
-    width: 160px;
+  .card {
+    flex: 0 0 45%;          
+    max-width: 45%;
   }
+   .brand-text {
+    font-size: 25px;
+    
+  font-weight: 600;
+  color: maroon;
+  margin-left: auto; 
+}
+}
 
-  /* History fix */
-  #history {
-    flex-wrap: wrap;
-    gap: 10px;
+ 
+  @media (max-width: 768px) {
+  .live-card {
+    width: 45%;          
   }
+}
 
-  /* Text sizing */
-  h2 {
-    font-size: 18px;
-  }
-
-  .score {
-    font-size: 28px;
+@media (max-width: 480px) {
+  .live-card {
+    width: 100%;         
   }
 }
