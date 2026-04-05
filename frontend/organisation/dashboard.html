@@ -4,6 +4,12 @@
   <title>Organisation Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="dashboard.css">
+  <script>
+if (!localStorage.getItem("orgToken")) {
+  alert("Login first");
+  window.location.href = "login.html";
+}
+</script>
 </head>
 <body>
 
