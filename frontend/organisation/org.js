@@ -3,40 +3,42 @@ const API = "https://usports.onrender.com/api/score";
 
 let match = null;
 
+/* ================= LOGIN ================= */
 function loginn() {
-
   fetch("https://usports.onrender.com/api/org/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-
     body: JSON.stringify({
       email: document.getElementById("email").value,
       password: document.getElementById("password").value
     })
-
   })
-
   .then(res => res.json())
-
   .then(data => {
 
-    localStorage.setItem("orgToken", data.token);
-    window.location.href = "dashboard.html";
+    if (data.token) {
+      localStorage.setItem("orgToken", data.token);
+      window.location.href = "dashboard.html";
+    } else {
+      alert(data.message || "Login failed ❌");
+    }
 
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Server error ❌");
   });
-
 }
 
-
-// CREATE MATCH
+/* ================= CREATE MATCH ================= */
 async function createMatch(sport) {
+
   const data = {
     sport,
     tournament: document.getElementById("tournament").value,
     teamA: document.getElementById("teamA").value,
     teamB: document.getElementById("teamB").value,
 
-    // 🔥 DEFAULTS
     status: "Live",
     innings: 1,
 
@@ -54,35 +56,42 @@ async function createMatch(sport) {
 
   const res = await fetch(API, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem("orgToken")
+    },
     body: JSON.stringify(data)
   });
 
   match = await res.json();
 
-  socket.emit("scoreCreated"); // 🔥 FIXED
+  socket.emit("scoreCreated");
 
-  renderOrgPreview(match); // 🔥 SHOW PREVIEW
+  renderOrgPreview(match);
 }
 
-// UPDATE MATCH
+/* ================= UPDATE MATCH ================= */
 async function updateMatch() {
+
+  if (!match) return;
+
   const res = await fetch(`${API}/${match._id}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem("orgToken")
+    },
     body: JSON.stringify(match)
   });
 
   match = await res.json();
 
-  socket.emit("scoreUpdated"); // 🔥 FIXED
+  socket.emit("scoreUpdated");
 
-  renderOrgPreview(match); // 🔥 LIVE PREVIEW
+  renderOrgPreview(match);
 }
 
-
-
-// CRICKET
+/* ================= CRICKET ================= */
 function addRun(x) {
   if (!match) return;
 
@@ -140,29 +149,36 @@ function addBall() {
 }
 
 function changeInnings() {
+  if (!match) return;
   match.innings = 2;
   updateMatch();
 }
 
-// FOOTBALL
+/* ================= FOOTBALL ================= */
 function goalA() {
-  match.scoreA++;
+  if (!match) return;
+  match.scoreA = (match.scoreA || 0) + 1;
   updateMatch();
 }
 
 function goalB() {
-  match.scoreB++;
+  if (!match) return;
+  match.scoreB = (match.scoreB || 0) + 1;
   updateMatch();
 }
 
-// FINISH MATCH
+/* ================= FINISH ================= */
 function finishMatch() {
+  if (!match) return;
   match.status = "Finished";
   updateMatch();
 }
 
+/* ================= PREVIEW ================= */
 function renderOrgPreview(match) {
   const div = document.getElementById("orgLivePreview");
+
+  if (!div) return;
 
   if (!match) {
     div.innerHTML = "<p>No Match</p>";
@@ -199,6 +215,7 @@ function renderOrgPreview(match) {
   div.innerHTML = content;
 }
 
+/* ================= SOCKET ================= */
 socket.on("scoreUpdated", (data) => {
   match = data;
   renderOrgPreview(data);
