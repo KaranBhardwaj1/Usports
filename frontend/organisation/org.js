@@ -15,6 +15,7 @@ function loginn() {
   })
   .then(res => res.json())
   .then(data => {
+     console.log("LOGIN RESPONSE:", data);
 
     if (data.token) {
       localStorage.setItem("orgToken", data.token);
