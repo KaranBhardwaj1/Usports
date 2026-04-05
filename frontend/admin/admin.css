@@ -186,6 +186,7 @@ table button.delete:hover {
   font-size: 25px;
   font-weight: 600;
   margin-left: auto;
+  color: maroon
 }
 
 .header-left {
