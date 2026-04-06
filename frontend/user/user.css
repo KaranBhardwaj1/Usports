@@ -202,7 +202,7 @@ h2 {
 /* CARD */
 .equip-card {
   background: white;
-  width: 180px;
+  width: 150px;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -254,15 +254,7 @@ h2 {
   color: maroon;
   margin-left: auto; 
 }
-.equip-card {
-  background: white;
-  width: 150px;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
+
 }
 
  
