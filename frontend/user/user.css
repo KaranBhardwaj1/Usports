@@ -254,9 +254,11 @@ h2 {
   color: maroon;
   margin-left: auto; 
 }
-.equip{
+.equip-card{
   width:150px;
 }
+}
+
 
  
   @media (max-width: 768px) {
