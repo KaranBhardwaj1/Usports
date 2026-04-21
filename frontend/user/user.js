@@ -371,12 +371,17 @@ async function loadInvites() {
   const div = document.getElementById("inviteBox");
 
   div.innerHTML = data.map(i => {
-    const time = new Date(i.time).toLocaleTimeString();
+    const formattedTime = new Date(i.time).toLocaleTimeString("en-IN", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true
+    });
     return`
     <div class="invite-card">
       <h3>${i.sport}</h3>
       <p><b>${i.name}</b></p>
       <p>${i.message}</p>
+      <small>${formattedTime}</small>  
     </div>
   `;
   }).join("");
@@ -385,7 +390,8 @@ async function loadInvites() {
 socket.on("receiveInvite", (data) => {
 
   const div = document.getElementById("inviteBox");
-  const formattedTime = new Date(data.time).toLocaleTimeString("en-IN", {
+   const time = new Date(data.time).toLocaleTimeString("en-IN", {
+    timeZone: "Asia/Kolkata",
     hour: "2-digit",
     minute: "2-digit",
     hour12: true
