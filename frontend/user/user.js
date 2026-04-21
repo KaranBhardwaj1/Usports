@@ -377,7 +377,6 @@ async function loadInvites() {
       <h3>${i.sport}</h3>
       <p><b>${i.name}</b></p>
       <p>${i.message}</p>
-      <small>${time}</small>
     </div>
   `;
   }).join("");
@@ -386,7 +385,11 @@ async function loadInvites() {
 socket.on("receiveInvite", (data) => {
 
   const div = document.getElementById("inviteBox");
-  const time = new Date(data.time).toLocaleString("en-IN")
+  const formattedTime = new Date(data.time).toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true
+  });
 
   div.innerHTML += `
     <div class="invite-card">
