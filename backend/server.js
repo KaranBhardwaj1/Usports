@@ -109,6 +109,7 @@ socket.on("sendInvite", (data) => {
   console.log("Invite:", data);
 
   // send to all users
+  data.time = new Date().toLocaleTimeString();
   io.emit("receiveInvite", data);
 });
 });
