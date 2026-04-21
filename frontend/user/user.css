@@ -153,6 +153,9 @@ h2 {
 #invite{
   height: 150px;
 }
+#invitebox{
+  height: 100px;
+}
 /* Footer */
 .footer {
   background: #e50914;
