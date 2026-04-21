@@ -383,6 +383,7 @@ async function loadInvites() {
 socket.on("receiveInvite", (data) => {
 
   const div = document.getElementById("inviteBox");
+  const time = new Date(data.time).toLocaleTimeString();
 
   div.innerHTML += `
     <div class="invite-card">
