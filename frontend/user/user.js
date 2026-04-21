@@ -375,7 +375,7 @@ async function loadInvites() {
       <h3>${i.sport}</h3>
       <p><b>${i.name}</b></p>
       <p>${i.message}</p>
-      <small>${i.message}</small>
+      
     </div>
   `).join("");
 }
