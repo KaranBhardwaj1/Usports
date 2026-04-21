@@ -370,14 +370,17 @@ async function loadInvites() {
 
   const div = document.getElementById("inviteBox");
 
-  div.innerHTML = data.map(i => `
+  div.innerHTML = data.map(i => {
+    const time = new Date(i.time).toLocaleTimeString();
+    return`
     <div class="invite-card">
       <h3>${i.sport}</h3>
       <p><b>${i.name}</b></p>
       <p>${i.message}</p>
-      
+      <small>${time}</small>
     </div>
-  `).join("");
+  `;
+  }).join("");
 }
 
 socket.on("receiveInvite", (data) => {
