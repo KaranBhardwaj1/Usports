@@ -23,7 +23,7 @@ function loadEquipment() {
             <b>${item.name}</b> -
             <span>${item.available ? "Available" : "Not Available"}</span>
             <button onclick="toggleAvailability('${item._id}', ${item.available})">
-              Toggle
+              Change Availability
             </button>
           </div>
           <hr>
