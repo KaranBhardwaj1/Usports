@@ -83,6 +83,7 @@ function toggleAvailability(id, currentStatus) {
 function assign() {
   const equipmentId = document.getElementById("equipmentSelect").value;
   const universityId = document.getElementById("universityId").value;
+   const name = document.getElementById("studentName").value;
 
   if (!equipmentId || !universityId) {
     alert("Fill all fields");
@@ -95,7 +96,11 @@ function assign() {
       "Content-Type": "application/json",
       Authorization: token
     },
-    body: JSON.stringify({ equipmentId, universityId })
+    body: JSON.stringify({
+  equipmentId,
+  universityId,
+  name
+})
   })
     .then(res => res.text())
     .then(msg => {
