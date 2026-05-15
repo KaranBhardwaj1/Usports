@@ -1,4 +1,5 @@
 const API = "https://usports.onrender.com/api";
+const token = localStorage.getItem("token");
 
 /* ===============================
    LOAD EQUIPMENT (ADMIN LIST)
@@ -125,17 +126,10 @@ function loadAssignments() {
           <td>${a.universityId}</td>
           <td>${new Date(a.assignedAt).toLocaleString()}</td>
           <td>
-
-  <button onclick="returnEquipment('${a._id}')">
-    Return
-  </button>
-
-  <button onclick="markBroken('${a._id}')"
-    style="background:red;color:white;margin-left:5px;">
-    Broken
-  </button>
-
-</td>
+            <button onclick="returnEquipment('${a._id}')">
+              Return
+            </button>
+          </td>
         </tr>
       `;
     });
@@ -159,37 +153,6 @@ function returnEquipment(id) {
       loadAssignments();
       loadEquipment();
     });
-
-    function markBroken(id) {
-
-  fetch(`${API}/request/broken/${id}`, {
-
-    method: "PUT",
-
-    headers: {
-      Authorization: token
-    }
-
-  })
-
-  .then(res => res.json())
-
-  .then(data => {
-
-    alert(data.message);
-
-    loadAssignments();
-    loadEquipment();
-
-  })
-
-  .catch(err => {
-
-    console.log(err);
-
-  });
-
-}
 }
 
 function loadPoolBookings() {
