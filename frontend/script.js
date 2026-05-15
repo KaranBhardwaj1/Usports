@@ -23,7 +23,7 @@ function register() {
 // LOGIN
 
 function login() {
-  fetch("https://localhost:5000/api/auth/login", {
+  fetch("https://usports.onrender.com/api/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
