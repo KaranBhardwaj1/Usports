@@ -129,6 +129,21 @@ function loadAssignments() {
             <button onclick="returnEquipment('${a._id}')">
               Return
             </button>
+
+             <button 
+    onclick="markBroken('${a._id}')"
+    style="
+      background:red;
+      color:white;
+      border:none;
+      padding:5px 10px;
+      margin-left:5px;
+      border-radius:5px;
+      cursor:pointer;
+    "
+  >
+    Broken
+  </button>
           </td>
         </tr>
       `;
@@ -153,6 +168,39 @@ function returnEquipment(id) {
       loadAssignments();
       loadEquipment();
     });
+}
+
+function markBroken(id) {
+
+  fetch(`${API}/request/broken/${id}`, {
+
+    method: "PUT",
+
+    headers: {
+      Authorization: token
+    }
+
+  })
+
+  .then(res => res.json())
+
+  .then(data => {
+
+    alert(data.message);
+
+    loadAssignments();
+    loadEquipment();
+
+  })
+
+  .catch(err => {
+
+    console.log(err);
+
+    alert("Error updating broken equipment");
+
+  });
+
 }
 
 function loadPoolBookings() {
