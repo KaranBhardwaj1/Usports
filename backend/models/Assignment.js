@@ -6,6 +6,7 @@ const assignmentSchema = new mongoose.Schema({
     ref: "Equipment"
   },
   universityId: String,
+  name: String,
   assignedAt: {
     type: Date,
     default: Date.now
