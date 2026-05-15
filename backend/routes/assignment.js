@@ -62,7 +62,7 @@ router.put("/broken/:id", async (req, res) => {
 
     }
 
-    assignment.status = "Broken";
+    assignment.status = "broken";
 
     await assignment.save();
 
