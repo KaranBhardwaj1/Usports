@@ -13,7 +13,7 @@ const assignmentSchema = new mongoose.Schema({
   returnedAt: Date,
   status: {
   type: String,
-  enum: ["assigned", "returned", "Broken"],
+  enum: ["assigned", "returned", "broken"],
   default: "assigned"
 }
 });
