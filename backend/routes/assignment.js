@@ -8,16 +8,17 @@ router.post("/assign", auth, async (req, res) => {
   if (req.user.role !== "admin")
     return res.status(403).json("Admin only");
 
-  const { equipmentId, universityId } = req.body;
+  const { equipmentId, universityId, name } = req.body;
 
   await Equipment.findByIdAndUpdate(equipmentId, {
     available: false
   });
 
   const assignment = new Assignment({
-    equipmentId,
-    universityId
-  });
+  equipmentId,
+  universityId,
+  name
+});
 
   await assignment.save();
   res.json("Equipment assigned");
@@ -70,9 +71,14 @@ router.put("/broken/:id", async (req, res) => {
     const last4 = universityId.slice(-4);
 
     // Example email generation
-    const studentName = assignment.name.toLowerCase().replace(/\s/g, "");
+    const studentName =
+  assignment.name.toLowerCase().replace(/\s/g, "");
 
-    const email =`${studentName}${last4}.be24@chitkarauniversity.edu.in`;
+// batch from first 2 digits
+const batch = universityId.slice(0, 2);
+
+const email =
+`${studentName}${last4}.be${batch}@chitkarauniversity.edu.in`;
 
     await sendMail(
 
