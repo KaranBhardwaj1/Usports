@@ -172,7 +172,7 @@ function returnEquipment(id) {
 
 function markBroken(id) {
 
-  fetch(`${API}/request/broken/${id}`, {
+  fetch(`${API}/assignment/broken/${id}`, {
 
     method: "PUT",
 
