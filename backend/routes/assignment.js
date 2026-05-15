@@ -45,40 +45,43 @@ router.post("/return/:id", auth, async (req, res) => {
 module.exports = router;
 
 const sendMail = require("../utils/sendMail");
-
 router.put("/broken/:id", async (req, res) => {
 
   try {
 
-    const Assignment = require("../models/Assignment");
-
     const assignment = await Assignment.findById(req.params.id);
 
     if (!assignment) {
-
       return res.status(404).json({
         message: "Assignment not found"
       });
-
     }
 
     assignment.status = "broken";
 
     await assignment.save();
 
-    const universityId = assignment.universityId;
+    // fallback name
+    const studentName =
+      (assignment.name || "student")
+      .toLowerCase()
+      .replace(/\s/g, "");
 
+    // university id
+    const universityId =
+      assignment.universityId || "2411981270";
+
+    // last 4 digits
     const last4 = universityId.slice(-4);
 
-    // Example email generation
-    const studentName =
-  assignment.name.toLowerCase().replace(/\s/g, "");
+    // batch from first 2 digits
+    const batch = universityId.slice(0, 2);
 
-// batch from first 2 digits
-const batch = universityId.slice(0, 2);
-
-const email =
+    // final email
+    const email =
 `${studentName}${last4}.be${batch}@chitkarauniversity.edu.in`;
+
+    console.log("Sending mail to:", email);
 
     await sendMail(
 
@@ -86,7 +89,9 @@ const email =
 
       "Broken Equipment Notice",
 
-`Your assigned equipment has been marked as broken.
+`Dear Student,
+
+The equipment assigned to you has been marked as broken.
 
 Please contact sports administration.
 
@@ -100,7 +105,7 @@ uSports Team`
 
   } catch (err) {
 
-    console.log(err);
+    console.log("BROKEN ROUTE ERROR:", err);
 
     res.status(500).json({
       message: "Server error"
@@ -109,6 +114,7 @@ uSports Team`
   }
 
 });
+
 
 // GET ACTIVE ASSIGNMENTS (ADMIN)
 router.get("/active", auth, async (req, res) => {
