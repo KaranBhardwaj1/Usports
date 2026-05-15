@@ -1,7 +1,4 @@
-const API =
-  window.location.hostname === "localhost"
-    ? "http://localhost:5000/api"
-    : "https://usports.onrender.com/api";
+const API = "https://usports.onrender.com/api";
 
 // REGISTER
 function register() {
