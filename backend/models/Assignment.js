@@ -12,10 +12,10 @@ const assignmentSchema = new mongoose.Schema({
   },
   returnedAt: Date,
   status: {
-    type: String,
-    enum: ["assigned", "returned"],
-    default: "assigned"
-  }
+  type: String,
+  enum: ["assigned", "returned", "Broken"],
+  default: "assigned"
+}
 });
 
 module.exports = mongoose.model("Assignment", assignmentSchema);
