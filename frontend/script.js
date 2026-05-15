@@ -1,4 +1,7 @@
-const API = "https://usports.onrender.com/api";
+const API =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000/api"
+    : "https://usports.onrender.com/api";
 
 // REGISTER
 function register() {
@@ -23,7 +26,7 @@ function register() {
 // LOGIN
 
 function login() {
-  fetch("https://usports.onrender.com/api/auth/login", {
+  fetch("https://localhost:5000/api/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
