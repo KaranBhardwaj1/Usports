@@ -43,6 +43,67 @@ router.post("/return/:id", auth, async (req, res) => {
 
 module.exports = router;
 
+const sendMail = require("../utils/sendMail");
+
+router.put("/broken/:id", async (req, res) => {
+
+  try {
+
+    const Assignment = require("../models/Assignment");
+
+    const assignment = await Assignment.findById(req.params.id);
+
+    if (!assignment) {
+
+      return res.status(404).json({
+        message: "Assignment not found"
+      });
+
+    }
+
+    assignment.status = "Broken";
+
+    await assignment.save();
+
+    const universityId = assignment.universityId;
+
+    const last4 = universityId.slice(-4);
+
+    // Example email generation
+    const studentName = assignment.name.toLowerCase().replace(/\s/g, "");
+
+    const email =`${studentName}${last4}.be24@chitkarauniversity.edu.in`;
+
+    await sendMail(
+
+      email,
+
+      "Broken Equipment Notice",
+
+`Your assigned equipment has been marked as broken.
+
+Please contact sports administration.
+
+uSports Team`
+
+    );
+
+    res.json({
+      message: "Broken status updated and email sent"
+    });
+
+  } catch (err) {
+
+    console.log(err);
+
+    res.status(500).json({
+      message: "Server error"
+    });
+
+  }
+
+});
+
 // GET ACTIVE ASSIGNMENTS (ADMIN)
 router.get("/active", auth, async (req, res) => {
   if (req.user.role !== "admin")
