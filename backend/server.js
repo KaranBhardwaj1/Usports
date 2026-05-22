@@ -14,7 +14,8 @@ const io = new Server(server, {
   cors: {
     origin: [
       "https://usports-three.vercel.app",
-      "https://usports-git-main-karanbhardwaj1s-projects.vercel.app"
+      "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
+       "https://karanbhardwaj0012-mobile-app--vdc3hflmh0.expo.app"
     ],
     methods: ["GET", "POST"]
   }
