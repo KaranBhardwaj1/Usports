@@ -16,7 +16,7 @@ const io = new Server(server, {
       "https://usports-three.vercel.app",
       "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
        "https://karanbhardwaj0012-mobile-app.expo.app",
-      "https://karanbhardwaj0012-mobile-app--oqk2uo9y43.expo.app/"
+      "https://karanbhardwaj0012-mobile-app--oqk2uo9y43.expo.app"
     ],
     methods: ["GET", "POST"]
   }
@@ -29,7 +29,7 @@ const allowedOrigins = [
   "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
   "http://localhost:3000",
   "https://karanbhardwaj0012-mobile-app.expo.app",
-  "https://karanbhardwaj0012-mobile-app--oqk2uo9y43.expo.app/"
+  "https://karanbhardwaj0012-mobile-app--oqk2uo9y43.expo.app"
 ];
 
 app.use(cors({
