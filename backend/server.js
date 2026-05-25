@@ -15,7 +15,7 @@ const io = new Server(server, {
     origin: [
       "https://usports-three.vercel.app",
       "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
-       "https://karanbhardwaj0012-mobile-app--vdc3hflmh0.expo.app"
+       "https://karanbhardwaj0012-mobile-app.expo.app"
     ],
     methods: ["GET", "POST"]
   }
@@ -27,7 +27,7 @@ const allowedOrigins = [
   "https://usports-three.vercel.app", // ✅ ADD THIS (your actual frontend)
   "https://usports-git-main-karanbhardwaj1s-projects.vercel.app",
   "http://localhost:3000",
-  "https://karanbhardwaj0012-mobile-app--vdc3hflmh0.expo.app"
+  "https://karanbhardwaj0012-mobile-app.expo.app"
 ];
 
 app.use(cors({
