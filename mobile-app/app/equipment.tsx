@@ -20,11 +20,11 @@ export default function Equipment() {
   const images: any = {
   cricket: require("../assets/images/cricket.png"),
   football: require("../assets/images/football.png"),
-  tabletennis: require("../assets/images/table tennis.png"),
+  tabletennis: require("../assets/images/tabletennis.png"),
   badminton: require("../assets/images/badminton.png"),
-  basketball: require("../assets/images/basket ball.png"),
-  volleyball: require("../assets/images/volley ball.png"),
-  tablesoccer: require("../assets/images/table soccer.png"),
+  basketball: require("../assets/images/basketball.png"),
+  volleyball: require("../assets/images/volleyball.png"),
+  tablesoccer: require("../assets/images/tablesoccer.png"),
 };
 
   useEffect(() => {
